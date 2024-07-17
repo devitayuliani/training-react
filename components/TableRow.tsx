@@ -5,7 +5,6 @@ import Link from 'next/link';
 import styles from '../styles/components/General.module.css';
 
 interface Movie {
-    id: number;
     title: string;
     release_date: string;
 }
@@ -17,7 +16,6 @@ interface TableRowProps {
 const TableRow: React.FC<TableRowProps> = ({ movie }) => {
   return (
     <tr className="border-b border-gray-300">
-      <td className="border-r border-gray-300 px-4 py-2">{movie.id}</td>
       <td>{movie.title}</td>
       <td>{movie.release_date}</td>
       <td className="border px-4 py-2">

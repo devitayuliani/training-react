@@ -6,9 +6,9 @@ import Image from 'next/image';
 import { MovieDetail } from '@/app/types';
 import movieService from '@/services/movieService';
 
-const MovieDetailPage = () => {
+const MovieDetailPage = ({params}: {params: {id: string}}) => {
   const searchParams = useParams();
-  const id = searchParams as { id: string };;
+  const id = searchParams;
   const [movie, setMovie] = useState<MovieDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,7 +20,7 @@ const MovieDetailPage = () => {
       console.log('Movie ID:', id); // Log the movie ID
       try {
         setLoading(true);
-        const movieData = await movieService.getMovieDetail(`id`);
+        const movieData = await movieService.getMovieDetail(params.id);
         console.log('Movie data fetched:', movieData);
         setMovie(movieData);
       } catch (err) {

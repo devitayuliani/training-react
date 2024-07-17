@@ -24,7 +24,6 @@ const MovieList = ({ category }: { category: string }) => {
     queryFn: () => fetchMovies(category),
   });
 
-  console.log('Fetched Movies Data:', data);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading movies</div>;
@@ -34,7 +33,6 @@ const MovieList = ({ category }: { category: string }) => {
     <table className="min-w-full divide-y divide-gray-200">
       <thead className={styles.body1}>
         <tr>
-          <th >ID</th>
           <th >Title</th>
           <th >Release Date</th>
           <th >Action</th>
